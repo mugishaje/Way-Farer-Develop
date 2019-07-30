@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="public bus transportation booking service,WayFarer">
+    <meta name="author" content="BARAKA UWIMANA Jean Pierre">
+    <title>
+        Way-Farer
+    </title>
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 800px)" href="../css/widescreencss.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 800px)" href="../css/smallscreencss.css">
+
+</head>
+
+<body>
+    <div class="nav-bar">
+        <a href="../../index.html" class="icon">
+            <label class="logo">Way Farer</label>
+        </a>
+        <div class="container">
+            <ul class="top-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li id="loginAndRegister"><a href="./signin.html">Login</a></li>
+                <li><a href="./trip.html">Trips</a></li>
+                <!-- <li><a href="UI/pages/about.html">About Us</a></li> -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="admin-content">
+
+        <div class="left-bar">
+            <a href="./adminViewAllTrips.html">View all trips</a>
+            <a href="./adminCreateTrip.html" target="">Create a trip</a>
+
+            <a href="./adminViewBookings.html" target="">View all bookings</a>
+
+
+        </div>
+        <div class="All-Trips-Title"><span>All Trips</span></div>
+        <div class="admin-right-contents">
+            <div class="book-trip">
+                <div class="left-trips">
+                    <form>
+                        <div class="left-origin">
+                            <label>Origin:</label><br/>
+                            <select>
+                                            <option value "1"> -- none --</option>
+                                            <option value="2">Kigali</option>
+                                            <option value="3">Butare</option>
+                                            <option value="4">Rubavu</option>
+                                            <option value="5">Kibungo</option>
+                                            <option value="6">Rusizi</option>
+                                            <option value="7">Nyamagabe</option>
+                                            <option value="8">Nyaruguru</option> 
+                                        </select>
+                        </div>
+                        <div class="left-destination">
+                            <label>Destination:</label><br/>
+                            <select>
+                                            <option value "1"> -- none --</option>
+                                            <option value="2">Kigali</option>
+                                            <option value="3">Butare</option>
+                                            <option value="4">Rubavu</option>
+                                            <option value="5">Kibungo</option>
+                                            <option value="6">Rusizi</option>
+                                            <option value="7">Nyamagabe</option>
+                                            <option value="8">Nyaruguru</option> 
+                                        </select>
+                        </div>
+
+                        <div class="search-trip">
+                            <button id="search-trip-btn">Search Trip</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="right-trips">
+                    <div class="trip filter">
+                        <div class="trip-content"></div>
+                        <input type="text" id="search-location" placeholder="search location...">
+
+
+                        <select id="filter-query">
+                                                <option> filter by </option>
+                                                <option id="filter-by-origin">filter by Origin</option>
+                                                <option id="filter-by-destination"> filter by Destination</option>
+                                            </select>
+                    </div>
+
+                    <div class="trip one">
+                        <div class="trip-content">
+                            <span class="from">From</span>
+                            <span class="origin">Kigali</span>
+                            <span class="separator">To</span>
+                            <span class="destination">Kamonyi</span>
+                            <span class="departure-time">8:50 AM</span>
+                            <span class="arrival-time">11:00 AM</span>
+                            <span class="route-span">Route:</span>
+                            <span class="route">Origin - Middle - Middle - Destination</span>
+                            <span class="seats-left">3 seats available</span>
+                            <span class="fare">$740</span>
+                            <button class="book-trip-btn"><a href="./adminSpecificTrip.html">View Trip</a></button>
+                        </div>
+                    </div>
+                    <div class="trip two">
+                        <div class="trip-content">
+                            <span class="from">From</span>
+                            <span class="origin">Musanze</span>
+                            <span class="separator">To</span>
+                            <span class="destination">Gisenyi</span>
+                            <span class="departure-time">8:50 AM</span>
+                            <span class="arrival-time">11:00 AM</span>
+                            <span class="route-span">Route:</span>
+                            <span class="route">Origin - Middle - Middle - Destination</span>
+                            <span class="seats-left">3 seats available</span>
+                            <span class="fare">$250</span>
+                            <button class="book-trip-btn"><a href="./adminSpecificTrip.html">View Trip</a></button>
+                        </div>
+                    </div>
+                    <div class="trip three">
+                        <div class="trip-content">
+                            <span class="from">From</span>
+                            <span class="origin">Huye</span>
+                            <span class="separator">To</span>
+                            <span class="destination">Rusizi</span>
+                            <span class="departure-time">8:50 AM</span>
+                            <span class="arrival-time">11:00 AM</span>
+                            <span class="route-span">Route:</span>
+                            <span class="route">Origin - Middle - Middle - Destination</span>
+                            <span class="seats-left">3 seats available</span>
+                            <span class="fare">$200</span>
+                            <button class="book-trip-btn"><a href="./adminSpecificTrip.html">View Trip</a></button>
+                        </div>
+                    </div>
+                    <div class="trip four">
+                        <div class="trip-content">
+                            <span class="from">From</span>
+                            <span class="origin">Kigali</span>
+                            <span class="separator">To</span>
+                            <span class="destination">Destination</span>
+                            <span class="departure-time">8:50 AM</span>
+                            <span class="arrival-time">11:00 AM</span>
+                            <span class="route-span">Route:</span>
+                            <span class="route">Origin - Middle - Middle - Destination</span>
+                            <span class="seats-left">3 seats available</span>
+                            <span class="fare">$300</span>
+                            <button class="book-trip-btn"><a href="./adminSpecificTrip.html">View Trip</a></button>
+                        </div>
+                    </div>
+                    <div class="trip five">
+                        <div class="trip-content">
+                            <span class="from">From</span>
+                            <span class="origin">Muhanga</span>
+                            <span class="separator">To</span>
+                            <span class="destination">Kigali</span>
+                            <span class="departure-time">8:50 AM</span>
+                            <span class="arrival-time">11:00 AM</span>
+                            <span class="route-span">Route:</span>
+                            <span class="route">Origin - Middle - Middle - Destination</span>
+                            <span class="seats-left">3 seats available</span>
+                            <span class="fare">$240</span>
+                            <button class="book-trip-btn"><a href="./adminSpecificTrip.html">View Trip</a></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© Way Farer 2019. <a href="#terms">Terms and conditions</a> | <a href="#privacy">Privacy</a> |
+                <a href="./contact.html">Contac Us</a>
+                <!-- | <a href="./UI/pages/about.html">About Page</a> -->
+            </p>
+        </div>
+    </div>
+    <script src="./ui/includes/slides.js"></script>
+    <script src="./ui/includes/sign-in-pop-up.js"></script>
+
+</body>
+
+</html>
