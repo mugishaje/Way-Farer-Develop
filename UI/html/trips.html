@@ -10,7 +10,8 @@
     <title>
         Way-Farer
     </title>
-    <link rel="stylesheet" type="text/css" href="../css/widescreencss.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 800px)" href="../css/widescreencss.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 800px)" href="../css/smallscreencss.css">
 
 </head>
 
@@ -24,8 +25,8 @@
             <ul class="top-nav">
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="./signin.html" id="loginAndRegister">Login</a></li>
-                <li><a href="./trip.html">Trips</a></li>
-                <!-- <li><a href="about.html">About Us</a></li> -->
+                <li><a href="./trips.html">Trips</a></li>
+
             </ul>
         </div>
     </div>
@@ -33,7 +34,11 @@
     <div class="trips-body">
 
         <div class="book-trip">
+
             <div class="left-trips">
+                <div>
+                    <span class="title">Available Trips</span>
+                </div>
                 <form>
                     <div class="left-origin">
                         <label>Origin:</label><br/>
@@ -61,51 +66,14 @@
                         <option value="8">Nyaruguru</option> 
                     </select>
                     </div>
-                    <!-- <div class="trip-way">
-                        <input type="radio" id="one-way" name="trip-way" value="one-way" checked><label>One way trip</label>
-                        <input type="radio" id="round" name="trip-way" value="round"><label>round trip</label>
-                    </div> -->
-                    <!-- <div class="dep-date">
-                        <label>Departure Date:</label><br/>
-                        <input type="date">
-                    </div> -->
-                    <!-- <div class="ret-date">
-                        <label>Return Date:</label><br/>
-                        <input type="date">
-                    </div> -->
-                    <!-- <div class="seats-to-book">
-                        <label>Seats to book</label><br/>
-                        <select><option value="2">none</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>                         
-                        </select>
-                    </div> -->
-                    <!-- <div class="seats-number">
-                        <label>Seat number</label><br/>
-                        <select>
-                                <option value="1">none</option>
-                                <option value="2">St-2</option>
-                                <option value="3">St-3</option>
-                                <option value="4">St-4</option>
-                                <option value="5">St-5</option>
-                                <option value="6">St-6</option>
-                                <option value="7">St-7</option>
-                                <option value="8">St-8</option>
-                                <option value="9">St-9</option>
-                                <option value="10">St-10</option>
-                            </select>
-                    </div> -->
+
                     <div class="search-trip">
                         <button id="search-trip-btn">Search Trip</button>
                     </div>
                 </form>
             </div>
             <div class="right-trips">
+
                 <div class="trip filter">
                     <div class="trip-content"></div>
                     <input type="text" id="search-location" placeholder="search location...">
