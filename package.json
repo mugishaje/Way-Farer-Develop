@@ -2,7 +2,7 @@
     "name": "way-farer-develop",
     "version": "1.0.0",
     "description": "A public bus trip booking  service",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
         "test": "nyc --reporter=html --reporter=text mocha --timeout 10000 --require babel-register --require babel-polyfill server/tests/*.js  --exit",
         "lint": "eslint",
