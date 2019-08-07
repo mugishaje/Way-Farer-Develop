@@ -33,20 +33,20 @@
 
     <div class="sign-up-container">
         <div class="sign-up-content">
-            <div class="sign-up-photo">
-                <img id="user-sign-up-icon" src="../images/Generic User 2.png">
+            <div class="sign-up-text">
+                <p>Way Farer offers you fast secure online public bus trip booking services. Create an account to access all our services </p>
             </div>
             <div class="sign-up">
                 <form class="sign-up-form">
-                    Firstname: <input type="text" placeholder="Ex: Mugisha" required><br/> Lastname: <input type="text" placeholder="Ex: Peter" required><br/> Email: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="email" placeholder="Ex: doorme@gmail.com"
-                        required><br/> Password:
-                    <input type="password" placeholder="Enter your Password" id="password" required><br/> Confirm Password: <input type="password" placeholder="Confirm your Password" id="conf_password" required><br/>
+                    <input type="text" placeholder="Ex: Mugisha" required><br/><input type="text" placeholder="Ex: Peter" required><br/><input type="email" placeholder="Ex: doorme@gmail.com" required><br/>
+                    <input type="password" placeholder="Enter your Password" id="password" required><br/><input type="password" placeholder="Confirm your Password" id="conf_password" required><br/>
                     <input type="checkbox" value="1">Receive newsletter from us
 
                     <h6>By signing up, I agree to Way-Farer's
-                        <a href="">Terms of Use and Privacy Policy</a></h6>
+                        <a href=""><br>Terms of Use and Privacy Policy</a>
+                    </h6>
                     <a href="./trips.html"><button type="submit" id="sign-me-up-btn">Sign Up</button></a>
-                    <hr/>
+                    <hr/><label>Arleady a member? <a href="./signin.html">Log in</a>
 
                 </form>
 
@@ -56,23 +56,12 @@
     </div>
     <div class="footer">
         <p>© Way Farer 2019. <a href="#terms">Terms and conditions|
-            <a href="./contact.html">Contac Us</a>
-            <!-- |  <a href="./about.html">About Page</a> -->
+            <a href="./contact.html">ContactUs</a>
+
         </p>
     </div>
     <script>
-        let password = document.getElementById("password");
-        let confirm_password = document.getElementById("conf_password");
-
-        function validatePassword() {
-            if (password.value != confirm_password.value) {
-                confirm_password.setCustomValidity("Passwords do not  match");
-            } else {
-                confirm_password.setCustomValidity('');
-            }
-        }
-        password.onchange = validatePassword;
-        confirm_password.onkeyup = validatePassword;
+        
     </script>
 </body>
 
