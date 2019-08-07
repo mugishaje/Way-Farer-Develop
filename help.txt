@@ -1,0 +1,146 @@
+PULL REQUEST TEMPLATE
+
+#### What does this PR do?
+#### Description of Task to be completed?
+#### How should this be manually tested?
+#### Any background context you want to provide?
+#### What are the relevant pivotal tracker stories?
+#### Screenshots (if appropriate)
+#### Questions:
+
+
+naming a feature
+ft-name of branch - id of the story at pivotal tracker
+bg-name of branch - id of the bug story at pivotal tracker
+
+creating a new branch
+git checkout -b branchname
+git branch branch name
+
+to rename branch name
+git branchnp  -m branchname        
+
+
+unresolved
+git stash pop
+git stash
+gco branchname
+code .              editor(visual tudio for ex)
+gco get
+git commit --amend
+git status
+git commit -m
+
+git squash
+
+
+NOW THIS IS THE FOLDER HIERARCHY TEMPLATE
+-----------------------------------------
+-----------------------------------------
+
+ADC Folder Structure
+
+Project Folder/
+| templates (or UI)/
+| |
+| | css/
+| | html/
+| | images (or img or assets)/
+| | js/    
+|
+|
+| server/
+| |
+| | config/
+| | controllers/
+| | helpers/
+| | middleware/
+| | models (or data or db)/
+| | routes/
+| | tests/    
+|
+| .babelrc    
+| .coveralls.yml
+| .eslintignore    
+| .eslintrc.js    
+| .gitignore    
+| .hound.yml
+| .travis.yml    
+| Procfile    
+| README.md    
+| app.json    
+| package.json
+
+
+
+
+writing a commit message
+------------------------
+
+chore(directories): creating UI templates
+
+This is the UI directory which includes all
+the UI subdirectories as prescribed by the
+Andela developper Challenge Folder Structure
+[Starts #167542769]
+
+
+feat(signup.html): creating the sign up page [Finishes #167588826]
+
+
+
+Pull request
+------------
+
+#### What does this PR do?
+#### Description of Task to be completed?
+#### How should this be manually tested?
+#### Any background context you want to provide?
+#### What are the relevant pivotal tracker stories?
+#### Screenshots (if appropriate)
+#### Questions:
+
+pivotal templates
+-----------------
+
+Title: Admin should be able to view all Way Farer trips
+
+Business/User Value: As an admin, I should be able to get all the available trips
+
+Acceptance Criteria
+GIVEN An admin
+WHEN Admin navigate the view trips page
+THEN Admin should see a page showing all the Way Farer available trips, which includes both the active and the cancelled trips.
+
+DEV NOTES
+Admin should be able to view all Way Farer trips
+
+DESIGN Notes
+Simple and attractive UI
+
+
+
+
+Stories front end
+-------
+
+users/admin see home page --
+
+user sign up --
+user sign in --
+user contact --
+admin create trip --
+
+Admin should be able to see all trips [&filters] --
+User should be able to see all trips [filters] --
+
+Admin should be able to see a specific trip [&cancel a trip]  -- 
+User should be able to see a specific trip [&Book seat, make a book] --
+
+Admin should be able to see all bookings + no-git
+User should be able to see all of his/her bookings [&delete booking] + no-git
+
+
+
+my ToDo
+on the last commit there will be image files (on the last branch 167592274 admin see booking)
