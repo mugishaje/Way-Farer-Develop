@@ -9,19 +9,19 @@ const schema = {
         email: Joi.string().email({ minDomainAtoms: 2 }).required(),
         password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
         token: [Joi.string(), Joi.number()],
-        is_admin: Joi.string().valid('true', 'false')
+        is_admin: Joi.string().valid(true, false)
     }),
     user_sign_up: Joi.object().keys({
-        first_name: Joi.string().trim().regex(/^\S[A-Za-z]{1,}$/).min(3).max(30).required(),
-        last_name: Joi.string().trim().regex(/^\S[A-Za-z]{1,}$/).min(3).max(30).required(),
+        first_name: Joi.string().regex(/^\S[A-Za-z]{1,}$/).min(3).max(30).required(),
+        last_name: Joi.string().regex(/^\S[A-Za-z]{1,}$/).min(3).max(30).required(),
         email: Joi.string().email({ minDomainAtoms: 2 }).required(),
         password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
         token: [Joi.string(), Joi.number()],
-        is_admin: Joi.string().valid('true', 'false')
+        is_admin: Joi.string().valid(true, false)
 
     }),
     user_sign_in: Joi.object().keys({
-        email: Joi.string().email({ minDomainAtoms: 2 }).trim().required(),
+        email: Joi.string().email({ minDomainAtoms: 2 }).required(),
         password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
         token: [Joi.string(), Joi.number()],
 
