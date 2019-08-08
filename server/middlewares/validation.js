@@ -27,13 +27,13 @@ const schema = {
 
     }),
     trips: Joi.object().keys({
-        trip_id: Joi.number(),
-        origin: Joi.string().min(3).max(30).required(),
-        destination: Joi.string().min(3).max(30).required(),
-        trip_date: Joi.date().required(), //         .format('DD-MM-YYYY').
-        fare: Joi.number().required(),
-        bus_license_number: Joi.string().regex(/^[a-zA-Z0-9 ]*$/).required(),
-        seating_capacity: Joi.number().min(10).max(120).required(),
+        trip_id: Joi.number().required(),
+        origin: Joi.string().min(3).max(30),
+        destination: Joi.string().min(3).max(30),
+        trip_date: Joi.date(), //         .format('DD-MM-YYYY').
+        fare: Joi.number(),
+        bus_license_number: Joi.string().regex(/^[a-zA-Z0-9 ]*$/),
+        seating_capacity: Joi.number().min(10).max(120),
         status: Joi.string().valid('active', 'cancelled')
     })
 };

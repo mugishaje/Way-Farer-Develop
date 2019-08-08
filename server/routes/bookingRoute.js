@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.get('/bookings', bookingController.viewBookings);
 router.delete('/bookings/:booking_id', bookingController.deleteBooking);
+router.post('/bookings', bookingController.bookSeat);
 
 export default router;
