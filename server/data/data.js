@@ -1,22 +1,36 @@
 import bcryptPwd from '../helpers/bcryptPwd';
+import tokens from '../helpers/tokens';
+
 const users = [];
 const trips = [];
 const bookings = [];
 
 users.push({
-    id: '2gf1',
+    id: 1,
     first_name: 'baraka',
     last_name: 'jean',
     email: 'baraka@gmail.com',
     password: bcryptPwd.hashThePassword('mypassword'),
     is_admin: false,
+    token: tokens.getToken({
+        id: 1,
+        first_name: 'baraka',
+        last_name: 'jean',
+        email: 'baraka@gmail.com',
+    }),
 }, {
-    id: '3fd6',
+    id: 2,
     email: 'jean@gmail.com',
     first_name: 'jean',
     last_name: 'pierre',
     password: bcryptPwd.hashThePassword('adminpass'),
     is_admin: true,
+    token: tokens.getToken({
+        id: 2,
+        email: 'jean@gmail.com',
+        first_name: 'jean',
+        last_name: 'pierre',
+    }),
 });
 
 trips.push({
