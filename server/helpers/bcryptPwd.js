@@ -5,7 +5,7 @@ const hashThePassword = (password) => {
     return bcrypt.hashSync(password, salt);
 };
 
-const checkThepassword = (hashPassword, password) => {
+const checkThepassword = (password, hashPassword) => {
     return bcrypt.compareSync(password, hashPassword);
 }
 

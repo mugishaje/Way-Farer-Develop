@@ -7,6 +7,7 @@ import schema from '../middlewares/validation';
 import uid from 'uid';
 import bcrypt from 'bcrypt';
 
+
 const userController = {
     signUp(req, res) {
         //check sign up details if valid with joi
@@ -28,7 +29,7 @@ const userController = {
         while (database.users.find(user => user.id == id)) {
             id = uid(4)
         } // or just database.users.length + 1; 
-        let IS_ADMIN = is_admin || 'false';
+        let IS_ADMIN = is_admin || false;
         is_admin = IS_ADMIN;
         let payload = { id, first_name, last_name, email };
 
@@ -42,9 +43,32 @@ const userController = {
         return res.status(201).json({
             status: 201,
             message: "The User was created successfully",
-            data: { token, id, first_name, last_name, email, is_admin, password }
+            data: { token, id, first_name, last_name, email, is_admin }
         })
-    }
+    },
+    signIn(req, res) {
+        //check if sign in data are full
+        let { email, password } = req.body;
+        let result = Joi.validate({ email, password }, schema.user_sign_in);
+        if (result.error) {
+            return res.status(400).json({ status: 400, message: `${result.error.details[0].message}` });
+        };
+
+        // check if the user exists
+        const user = database.users.find(user => user.email === email);
+
+        if (!user) { return res.status(404).json({ status: 404, message: { error: 'There is no such user with that email' } }); }
+        if (!database.users.find(user => bcryptPwd.checkThepassword(password, user.password))) { return res.status(401).json({ status: 401, data: { error: 'enter the correct password' } }); }
+
+        const { id, first_name, last_name, is_admin } = user;
+        const token = tokens.getToken(email, first_name, last_name, id);
+
+        return res.status(200).json({
+            status: 200,
+            message: "User found",
+            data: { token, id, first_name, last_name, email, is_admin }
+        });
+    },
 }
 
 export default userController;
