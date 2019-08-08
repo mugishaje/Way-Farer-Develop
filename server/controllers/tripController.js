@@ -15,8 +15,9 @@ const tripController = {
                 message: "success",
                 data: database.trips
             });
-        }
-        return res.status(tokens.decoded(req, res).status).json(tokens.decoded(req, res).message);
+        };
+
+        return res.status(401).json({ status: 401, message: "You are unauthorized to access trips... You are not yet registered" });
     },
 }
 

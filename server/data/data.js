@@ -18,4 +18,25 @@ users.push({
     password: bcryptPwd.hashThePassword('adminpass'),
     is_admin: true,
 });
+
+trips.push({
+    id: 1,
+    seating_capacity: 20,
+    bus_license_number: 'RAB 423',
+    origin: 'Kigali',
+    destination: 'Muhanga',
+    trip_date: '1-1-2019',
+    fare: 678,
+    status: 'active', // active, cancelled - default is active
+}, {
+    id: 2,
+    seating_capacity: 20,
+    bus_license_number: 'RAB 423',
+    origin: 'Kigali',
+    destination: 'Musanze',
+    trip_date: '1-04-2019',
+    fare: 343,
+    status: 'active',
+});
+
 export default { users, bookings, trips };
