@@ -53,4 +53,21 @@ trips.push({
     status: 'active',
 });
 
+bookings.push({
+    booking_id: 1,
+    bus_license_number: 'RAD 273',
+    trip_date: '12-04-2019',
+    first_name: 'Kamana',
+    last_name: 'tricia',
+    user_email: 'tricia@gmail.com',
+
+}, {
+    booking_id: 2,
+    bus_license_number: 'RAD 270',
+    trip_date: '1-06-2019',
+    first_name: 'Mary',
+    last_name: 'Doupe',
+    user_email: 'baraka@gmail.com',
+});
+
 export default { users, bookings, trips };

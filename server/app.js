@@ -1,6 +1,7 @@
 import express from 'express';
 import userRouter from './routes/userRoute';
 import tripRouter from './routes/tripRoute';
+import bookingRouter from './routes/bookingRoute';
 
 import bodyParser from 'body-parser';
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //working routes
 app.use('/api/v1/auth', userRouter);
 app.use('/api/v1', tripRouter);
+app.use('/api/v1', bookingRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`the server is running at port ${PORT}`));
