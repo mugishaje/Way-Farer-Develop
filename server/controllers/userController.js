@@ -4,9 +4,8 @@ import database from '../data/data';
 import tokens from '../helpers/tokens';
 import bcryptPwd from '../helpers/bcryptPwd'
 import schema from '../middlewares/validation';
-import uid from 'uid';
+// import uid from 'uid';
 import bcrypt from 'bcrypt';
-
 
 const userController = {
     signUp(req, res) {
@@ -24,11 +23,7 @@ const userController = {
             return res.status(409).json({ status: 409, message: 'The user with that email already exists' });
         };
 
-        let id = uid(4);
-
-        while (database.users.find(user => user.id == id)) {
-            id = uid(4)
-        } // or just database.users.length + 1; 
+        let id = database.users.length + 1;
         let IS_ADMIN = is_admin || false;
         is_admin = IS_ADMIN;
         let payload = { id, first_name, last_name, email };
@@ -37,7 +32,7 @@ const userController = {
         let token = tokens.getToken(payload);
         password = bcryptPwd.hashThePassword(password);
 
-        let newUser = { id, email, password, first_name, last_name, is_admin };
+        let newUser = { id, email, password, first_name, last_name, is_admin, token };
         database.users.push(newUser);
 
         return res.status(201).json({
@@ -60,13 +55,12 @@ const userController = {
         if (!user) { return res.status(404).json({ status: 404, message: { error: 'There is no such user with that email' } }); }
         if (!database.users.find(user => bcryptPwd.checkThepassword(password, user.password))) { return res.status(401).json({ status: 401, data: { error: 'enter the correct password' } }); }
 
-        const { id, first_name, last_name, is_admin } = user;
-        const token = tokens.getToken(email, first_name, last_name, id);
+        const { id, first_name, last_name, is_admin, token } = user;
 
         return res.status(200).json({
             status: 200,
             message: "User found",
-            data: { token, id, first_name, last_name, email, is_admin }
+            data: { id, first_name, last_name, email, is_admin, token },
         });
     },
 }
