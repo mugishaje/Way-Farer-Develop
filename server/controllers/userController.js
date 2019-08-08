@@ -24,8 +24,8 @@ const userController = {
         };
 
         let id = database.users.length + 1;
-        let IS_ADMIN = is_admin || false;
-        is_admin = IS_ADMIN;
+        let IS_ADMIN = (is_admin == 'true');
+        is_admin = IS_ADMIN || false;
         let payload = { id, first_name, last_name, email };
 
         // hash the password and generate token

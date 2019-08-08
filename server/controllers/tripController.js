@@ -9,6 +9,7 @@ const tripController = {
 
     viewTrips(req, res) {
         const user = database.users.find(user => user.email == tokens.decoded(req, res).email);
+
         if (user) {
             return res.status(200).json({
                 status: 200,
@@ -33,6 +34,21 @@ const tripController = {
                 data: trip
             });
         }
+        return res.status(401).json({ status: 401, message: "You are unauthorized to access trips... You are not yet registered" });
+    },
+    cancelTrip(req, res) {
+        const user = database.users.find(user => user.email == tokens.decoded(req, res).email);
+        const id = req.params.trip_id;
+        const trip = database.trips.find(trip => trip.id === parseInt(id, 10));
+        if (user) {
+            if (user.is_admin === true) {
+                if (!trip) { return res.status(404).json({ status: 404, message: "the trip was not found" }) };
+
+                database.trips.find(trip => trip.id === parseInt(id, 10)).status = "cancelled";
+                return res.status(200).json({ status: 200, message: "Trip cancelled successfully", data: database.trips.find(trip => trip.id === parseInt(id, 10)) });
+            }
+        };
+
         return res.status(401).json({ status: 401, message: "You are unauthorized to access trips... You are not yet registered" });
     },
 
