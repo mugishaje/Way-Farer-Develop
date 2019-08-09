@@ -1,10 +1,9 @@
-// import userModel from '../models/userModel';
 import Joi from 'joi';
 import database from '../data/data';
 import tokens from '../helpers/tokens';
 import bcryptPwd from '../helpers/bcryptPwd'
 import schema from '../middlewares/validation';
-// import uid from 'uid';
+
 import bcrypt from 'bcrypt';
 
 const userController = {
@@ -38,7 +37,7 @@ const userController = {
         return res.status(201).json({
             status: 201,
             message: "The User was created successfully",
-            data: { token, id, first_name, last_name, email, is_admin }
+            data: { id, first_name, last_name, email, is_admin }
         })
     },
     signIn(req, res) {
