@@ -75,8 +75,9 @@ const bookingController = {
                 user_email: user.email,
                 createdon: moment().format('ll'),
             }
-
+            if (trip.seats_left < 1) { return res.status(404).json({ status: 404, message: "There are no seats left on tthis trip" }) };
             database.bookings.push(newBooking);
+            database.trips.find(trip => trip.id == newBooking.trip_id).seats_left -= 1;
             return res.status(201).json({ status: 201, message: "Booking created", data: newBooking })
         }
         return res.status(401).json({ status: 401, message: "You are unauthorized for this operation. Sign in first" });
