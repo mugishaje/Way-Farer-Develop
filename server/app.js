@@ -19,6 +19,14 @@ app.use('/api/v1/auth', userRouter);
 app.use('/api/v1', tripRouter);
 app.use('/api/v1', bookingRouter);
 
+app.use(function(req, res, next) {
+    return res.status(404).send({ status: 404, message: 'Route' + req.url + ' Not found.' });
+});
+// 500 - Any server error
+app.use(function(err, req, res, next) {
+    return res.status(500).send({ status: 500, error: err });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`the server is running at port ${PORT}`));
 
