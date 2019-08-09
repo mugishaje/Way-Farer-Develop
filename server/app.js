@@ -3,7 +3,11 @@ import userRouter from './routes/userRoute';
 import tripRouter from './routes/tripRoute';
 import bookingRouter from './routes/bookingRoute';
 
+import dotenv from 'dotenv';
+
 import bodyParser from 'body-parser';
+dotenv.config();
+
 
 const app = express();
 
