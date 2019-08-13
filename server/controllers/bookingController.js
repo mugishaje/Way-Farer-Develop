@@ -55,14 +55,14 @@ const bookingController = {
         const user = database.users.find(user => user.email == tokens.decoded(req, res).email);
         if (user) {
             let { trip_id } = req.body;
-            const result = Joi.validate({ trip_id }, schema.trips);
+            const result = Joi.validate({ trip_id }, schema.bookings);
             if (result.error) {
                 return res.status(400).json({ status: 400, message: `${result.error.details[0].message}` });
 
             };
             const trip = database.trips.find(trip => trip.id == trip_id);
 
-            if (!trip) {; return res.status(404).json({ status: 404, message: "the trip to book was not found" }) };
+            if (!trip) { return res.status(404).json({ status: 404, message: "the trip to book was not found" }) };
 
             const newBooking = {
                 trip_id: trip.id,
@@ -75,9 +75,10 @@ const bookingController = {
                 user_email: user.email,
                 createdon: moment().format('ll'),
             }
-            if (trip.seats_left < 1) { return res.status(404).json({ status: 404, message: "There are no seats left on tthis trip" }) };
-            database.bookings.push(newBooking);
             database.trips.find(trip => trip.id == newBooking.trip_id).seats_left -= 1;
+            if (trip.seats_left < 1) { return res.status(404).json({ status: 404, message: "There are no seats left on this trip" }) };
+            database.bookings.push(newBooking);
+
             return res.status(201).json({ status: 201, message: "Booking created", data: newBooking })
         }
         return res.status(401).json({ status: 401, message: "You are unauthorized for this operation. Sign in first" });

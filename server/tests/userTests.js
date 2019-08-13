@@ -23,7 +23,7 @@ describe('Authentication test', () => {
             })
             .end((err, res) => {
                 res.should.has.status(404);
-
+                done();
             })
 
     });
@@ -33,7 +33,8 @@ describe('Authentication test', () => {
                 password: "f3425fsfsfsfsf4",
             })
             .end((err, res) => {
-                res.should.has.status(400)
+                res.should.has.status(400);
+                done();
             })
     });
     it('should not be able to sign in when password is empty', () => {
@@ -42,7 +43,8 @@ describe('Authentication test', () => {
                 password: "",
             })
             .end((err, res) => {
-                res.should.has.status(400)
+                res.should.has.status(400);
+                done();
             })
     });
 
@@ -52,17 +54,19 @@ describe('Authentication test', () => {
                 password: "ty",
             })
             .end((err, res) => {
-                res.should.has.status(400)
+                res.should.has.status(400);
+                done();
             })
     });
 
     it('should not be able to sign in when  email is invalid', () => {
         chai.request(app).post("api/v1/auth/signin").send({
-                email: "abcs876",
+                email: "abcs@876",
                 password: "f3425fsfsfsfsf4",
             })
             .end((err, res) => {
-                res.should.has.status(400)
+                res.should.has.status(400);
+                done();
             })
     });
 
@@ -75,7 +79,7 @@ describe('Authentication test', () => {
                 res.should.has.status(400);
                 done();
             })
-    })
+    });
 
     it('should not be able to sign in when all the fields have whitespaces', () => {
         chai.request(app).post("api/v1/auth/signin").send({
@@ -86,7 +90,7 @@ describe('Authentication test', () => {
                 rs.should.has.status(400);
                 done();
             })
-    })
+    });
 
 
     //for sign up auth
@@ -205,9 +209,6 @@ describe('Authentication test', () => {
     });
 
 
-
-
-
     //when they contain whitespaces
 
     it('should not be able to sign up when  last name fied has white spaces', (done) => {
@@ -274,7 +275,7 @@ describe('Authentication test', () => {
                 res.should.has.status(400);
                 done();
             })
-    })
+    });
 
     it('should not be able tosign up when all the fields have whitespaces', () => {
         chai.request(app).post("api/v1/auth/signup").send({
@@ -287,7 +288,7 @@ describe('Authentication test', () => {
                 res.should.has.status(400);
                 done();
             })
-    })
+    });
     it('should return an error when the api does not exist', () => {
         chai.request(app).post("api/v1/autgfgdp").send({
 
@@ -296,6 +297,6 @@ describe('Authentication test', () => {
                 res.should.has.status(500);
                 done();
             })
-    })
+    });
 
 })
