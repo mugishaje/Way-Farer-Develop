@@ -22,7 +22,7 @@ const tripController = {
     },
     getSpecificTrip(req, res) {
         const user = database.users.find(user => user.email == tokens.decoded(req, res).email);
-        console.log(tokens.decoded(req, res));
+
         const id = req.params.trip_id;
         const trip = database.trips.find(trip => trip.id === parseInt(id, 10));
 
@@ -47,7 +47,9 @@ const tripController = {
 
                 database.trips.find(trip => trip.id === parseInt(id, 10)).status = "cancelled";
                 return res.status(200).json({ status: 200, message: "Trip cancelled successfully", data: database.trips.find(trip => trip.id === parseInt(id, 10)) });
+
             }
+            return res.status(401).json({ status: 401, message: "You are not registered as an admin" });
         };
 
         return res.status(401).json({ status: 401, message: "You are unauthorized to access trips... You are not yet registered" });
