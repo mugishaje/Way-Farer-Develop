@@ -41,6 +41,7 @@ trips.push({
     destination: 'Muhanga',
     trip_date: '1-1-2019',
     fare: 678,
+    seats_left: 19,
     status: 'active', // active, cancelled - default is active
 }, {
     id: 2,
@@ -50,12 +51,14 @@ trips.push({
     destination: 'Musanze',
     trip_date: '1-04-2019',
     fare: 343,
+    seats_left: 19,
     status: 'active',
 });
 
 bookings.push({
     booking_id: 1,
     user_id: 1,
+    trip_id: 1,
     bus_license_number: 'RAB 423',
     trip_date: '1-06-2019',
     first_name: 'Mary',
